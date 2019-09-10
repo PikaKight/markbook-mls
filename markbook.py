@@ -1,6 +1,6 @@
 """
 Markbook Application
-Group members: 
+Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
 """
 
 
