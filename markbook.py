@@ -40,7 +40,8 @@ def add_student_to_classroom(student, classroom):
         student: Student dict
         classroom: The classroom to add the student to
     """
-    classroom.defaultdict(classroom)
+
     classroom["students"] = student
 
+    return classroom
     pass
