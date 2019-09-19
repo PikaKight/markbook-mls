@@ -3,48 +3,67 @@ from markbook import *
 def student():
     on = True
     while on:
+
         print ("hello")
-        ask = input("Do you want to continue (Y/N): ")
-        if ask == "N":
+
+        ask = int(input("Press 1 to go back"))
+
+        if ask == 1:
             on = False
         else:
             continue
+
     menu()
 
 def classroom():
     on = True
     while on:
+
         print ("hello")
-        ask = input("Do you want to continue (Y/N): ")
-        if ask == "N":
+
+        ask = int(input("Press 1 to go back"))
+
+
+        if ask == 1:
             on = False
         else:
             continue
+
     menu()
 
 def assignment():
     on = True
     while on:
+
         print ("hello")
-        ask = input("Do you want to continue (Y/N): ")
-        if ask == "N":
+
+        ask = int(input("Press 1 to go back"))
+
+
+        if ask == 1:
             on = False
         else:
             continue
+
     menu()
 
 def markbook():
     on = True
     while on:
+
         print ("hello")
-        ask = input("Do you want to continue (Y/N): ")
-        if ask == "N":
+
+        ask = int(input("Press 1 to go back"))
+        
+        if ask == 1:
             on = False
         else:
             continue
+
     menu()
 
 def menu():
+
     print ("""
         1: Student
         2: Classroom
@@ -64,8 +83,8 @@ def menu():
     elif a == 4:
         markbook()
     elif a == 5:
-        q = input("Are you sure (Y/N):")
-        if q == "Y":
+        q =int(input("Are you sure you want to quit (1/2):"))
+        if q == 1:
             quit
         else:
             menu()
