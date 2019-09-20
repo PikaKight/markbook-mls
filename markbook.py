@@ -25,7 +25,8 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
         "Period": period,
         "Teacher": teacher 
     }
-
+    with open("classroom.json", 'w') as f:
+        json.dump(classroom)
     return classroom
 
 
