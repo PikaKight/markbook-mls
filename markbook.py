@@ -69,7 +69,6 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
                 elif x == 3:
                     assignment["points"] = int(input("Enter the new points: "))
 
-
     elif a == 4:
         menu()
 
