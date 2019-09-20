@@ -1,12 +1,13 @@
 from markbook import *
 
 def student():
+
     on = True
     while on:
 
         print ("hello")
 
-        ask = int(input("Press 1 to go back"))
+        ask = int(input("Press 1 to go back: "))
 
         if ask == 1:
             on = False
@@ -21,7 +22,7 @@ def classroom():
 
         print ("hello")
 
-        ask = int(input("Press 1 to go back"))
+        ask = int(input("Press 1 to go back: "))
 
 
         if ask == 1:
@@ -37,7 +38,7 @@ def assignment():
 
         print ("hello")
 
-        ask = int(input("Press 1 to go back"))
+        ask = int(input("Press 1 to go back: "))
 
 
         if ask == 1:
@@ -53,8 +54,8 @@ def markbook():
 
         print ("hello")
 
-        ask = int(input("Press 1 to go back"))
-        
+        ask = int(input("Press 1 to go back: "))
+
         if ask == 1:
             on = False
         else:
