@@ -15,6 +15,37 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
     Returns:
         Assignment as a dictionary.
     """
+    print("""OPTIONS
+    1: Create
+    2: Delete
+    3: Edit
+    4: Return to menu""")
+
+    a = int(input("What would you like to do? "))
+
+    if a == 1:
+        name = input("What is the name of the assignment? ")
+        due = input("When is the due date? ")
+        points = int(input("How much is this assignment worth. "))
+
+        assigment1 = {
+            "name": name,
+            "due": due,
+            "points": points
+        }
+    
+    elif a == 2:
+        to_be_deleted = input("Which assignment would you like to delete?")
+
+        
+
+
+    elif a == 3:
+        pass
+    elif a == 4:
+        menu()
+
+
     return {}
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
