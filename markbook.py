@@ -5,7 +5,7 @@ Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
 from typing import Dict
 from menu import *
 
-def create_assignment(name: str, due: str, points: int) -> Dict:
+def create_assignment() -> Dict:  #name: str, due: str, points: int):
     """Creates an assignment represented as a dictionary
     
     Args:
