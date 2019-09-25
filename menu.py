@@ -3,23 +3,23 @@ from markbook import *
 
 def student():
 
-    on = True
-    while on:
+   
+    while True:
 
         print ("hello")
 
         ask = int(input("Press 1 to go back: "))
 
         if ask == 1:
-            on = False
+            break
         else:
             continue
 
     menu()
 
 def classroom():
-    on = True
-    while on:
+    
+    while True:
 
         print ("hello")
 
@@ -27,29 +27,29 @@ def classroom():
 
 
         if ask == 1:
-            on = False
+            break
         else:
             continue
 
     menu()
 
 def assignment():
-    on = True
-    while on:
+
+    while True:
         create_assignment()
 
     menu()
 
 def markbook():
-    on = True
-    while on:
+  
+    while True:
 
         print ("hello")
 
         ask = int(input("Press 1 to go back: "))
 
         if ask == 1:
-            on = False
+            break
         else:
             continue
 
