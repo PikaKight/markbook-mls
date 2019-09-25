@@ -3,7 +3,12 @@ Markbook Application
 Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
 """ 
 from typing import Dict
+<<<<<<< HEAD
+import json
+
+=======
 from menu import *
+>>>>>>> 51ecc7e39478c796a13cda19199a82c26a4a1dc7
 
 def create_assignment() -> Dict:  #name: str, due: str, points: int):
     """Creates an assignment represented as a dictionary
@@ -15,11 +20,15 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
     Returns:
         Assignment as a dictionary.
     """
+<<<<<<< HEAD
+    print ("""OPTIONS
+=======
 
     assignment_list = []
     print(assignment_list)
 
     print("""OPTIONS
+>>>>>>> 51ecc7e39478c796a13cda19199a82c26a4a1dc7
     1: Create
     2: Delete
     3: Edit
