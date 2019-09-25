@@ -1,10 +1,14 @@
 """
 Markbook Application
 Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
-"""
+""" 
 from typing import Dict
+<<<<<<< HEAD
 import json
 
+=======
+from menu import *
+>>>>>>> 51ecc7e39478c796a13cda19199a82c26a4a1dc7
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
     """Creates an assignment represented as a dictionary
@@ -16,7 +20,15 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
     Returns:
         Assignment as a dictionary.
     """
+<<<<<<< HEAD
     print ("""OPTIONS
+=======
+
+    assignment_list = []
+    print(assignment_list)
+
+    print("""OPTIONS
+>>>>>>> 51ecc7e39478c796a13cda19199a82c26a4a1dc7
     1: Create
     2: Delete
     3: Edit
@@ -24,27 +36,52 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
 
     a = int(input("What would you like to do? "))
 
+
     if a == 1:
         name = input("What is the name of the assignment? ")
         due = input("When is the due date? ")
-        points = int(input("How much is this assignment worth. "))
+        points = int(input("How much is this assignment worth? "))
 
-        assigment1 = {
+
+        assigment = {
             "name": name,
             "due": due,
             "points": points
         }
-    
-    elif a == 2:
-        to_be_deleted = input("Which assignment would you like to delete?")
 
-        
+        assignment_list.append(assignment)
+
+    elif a == 2:
+        to_be_deleted = input("Enter the assignment to be deleted: ")
+
+        for assignment in assignment_list:
+            if assignment["name"] == to_be_deleted:
+                assignment.clear()
 
 
     elif a == 3:
-        pass
+        to_be_edited = input("Enter the assignment to be edited: ")
+
+        for assignment in assignment_list:
+            if assignment["name"] == to_be_edited:
+                print("""What will you change?
+                1: Name
+                2: Due Date
+                3: Points""")
+
+                x = int(input())
+
+                if x == 1:
+                    assignment["name"] = input("Enter the new name: ")
+                elif x == 2:
+                    assignment["due"] = input("Enter the new due date: ")
+                elif x == 3:
+                    assignment["points"] = int(input("Enter the new points: "))
+
     elif a == 4:
+        on = False
         menu()
+
 
 
     return {}
