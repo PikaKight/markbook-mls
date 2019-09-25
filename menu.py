@@ -35,16 +35,7 @@ def classroom():
 def assignment():
     on = True
     while on:
-
-        print ("hello")
-
-        ask = int(input("Press 1 to go back: "))
-
-
-        if ask == 1:
-            on = False
-        else:
-            continue
+        create_assignment()
 
     menu()
 

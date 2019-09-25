@@ -70,6 +70,7 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
                     assignment["points"] = int(input("Enter the new points: "))
 
     elif a == 4:
+        on = False
         menu()
 
 
