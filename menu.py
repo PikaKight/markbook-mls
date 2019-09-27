@@ -74,7 +74,7 @@ def classroom():
 def assignment():
 
     while True:
-        
+
         print ("""
         OPTIONS
         1: Create
@@ -86,11 +86,11 @@ def assignment():
         ask = int(input("What you you like to do: "))
         
         if ask == 1:
-            create_assignment()    
+            create_assignment()
         elif ask == 2:
-            to_be_deleted = input("Which assignment would you like to delete?")
+            delete_assignment()
         elif ask == 3:
-            pass
+            edit_assignment()
         elif ask == 4:
             break
         else:
