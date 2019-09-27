@@ -58,15 +58,15 @@ def assignment():
         
         ask = int(input("What you you like to do: "))
         if a == 1:
-        name = input("What is the name of the assignment? ")
-        due = input("When is the due date? ")
-        points = int(input("How much is this assignment worth. "))
+            name = input("What is the name of the assignment? ")
+            due = input("When is the due date? ")
+            points = int(input("How much is this assignment worth. "))
 
-        assigment1 = {
-            "name": name,
-            "due": due,
-            "points": points
-        }
+            assigment1 = {
+                "name": name,
+                "due": due,
+                "points": points
+            }
     
         elif a == 2:
             to_be_deleted = input("Which assignment would you like to delete?")
