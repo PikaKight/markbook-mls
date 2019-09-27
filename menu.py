@@ -92,28 +92,18 @@ def assignment():
 def markbook():
   
     while True:
+        # Show markbook
 
         print ("""
         OPTIONS
-        1: Create
-        2: Delete
-        3: Edit
-        4: Return to menu
+        1: Return to menu
         """)
         
         ask = int(input("What you you like to do: "))
         
        
         if ask == 1:
-            create_assignment()    
-        elif ask == 2:
-            to_be_deleted = input("Which assignment would you like to delete?")
-        elif ask == 3:
-            pass
-        elif ask == 4:
-            break
-        else:
-            print ("Not a valid response. Please try again.")
+            menu()    
             
 
     menu()
