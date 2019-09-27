@@ -3,6 +3,7 @@ Markbook Application
 Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
 """
 from typing import Dict
+from menu import *
 import json
 
 
@@ -31,8 +32,29 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
     elif ask == 2:
         to_be_deleted = input("Which assignment would you like to delete?")
 
+        for assignment in assignment_list:
+            if assignment["name"] == to_be_deleted:
+                assignment.clear()
+
     elif ask == 3:
-        pass
+        to_be_edited = input("Enter the assignment to be edited: ")
+
+        for assignment in assignment_list:
+            if assignment["name"] == to_be_edited:
+                print("""What will you change?
+                1: Name
+                2: Due Date
+                3: Points""")
+
+                x = int(input())
+
+                if x == 1:
+                    assignment["name"] = input("Enter the new name: ")
+                elif x == 2:
+                    assignment["due"] = input("Enter the new due date: ")
+                elif x == 3:
+                    assignment["points"] = int(input("Enter the new points: "))
+
 
 
     return {}
