@@ -115,7 +115,7 @@ def markbook():
             break
         else:
             print ("Not a valid response. Please try again.")
-            continue
+            
 
     menu()
 
@@ -144,10 +144,10 @@ def menu():
         markbook()
 
     elif ask == 5:
-        q =int(input("Are you sure you want to quit (1/2):"))
+        q = input("Are you sure you want to quit (y/n):")
         
-        if q == 1:
-            quit
+        if q == "y":
+            quit()
         else:
             menu()
 
