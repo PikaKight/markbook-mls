@@ -58,16 +58,27 @@ def edit_assignment ():
 
 
 
-def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
+def create_classroom() -> Dict:
     """Creates a classroom dictionary"""
+
+    course_code = input ("What is the course code:")
+            
+    course_name = input ("What is the course name:")
+
+    period = input ("What period is the course in:")
+
+    teacher = input("Who is the teacher:")
+
     classroom = {
         "course_code": course_code,
         "course_name": course_name,
         "Period": period,
         "Teacher": teacher 
     }
+
     with open("classroom.json", 'w') as f:
         json.dump(classroom)
+        
     return classroom
 
 def calculate_average_mark(student: Dict) -> float:
