@@ -3,10 +3,9 @@ from markbook import *
 
 def student():
 
-   
     while True:
         
-        print ("""
+        print("""
         OPTIONS
         1: Add
         2: Delete
@@ -15,10 +14,9 @@ def student():
         """)
         
         ask = int(input("What you you like to do: "))
-        
-        
+
         if ask == 1:
-             add_student_to_classroom()  
+            add_student_to_classroom()  
 
         elif ask == 2:
             to_be_deleted = input("Which student would you like to delete: ")
@@ -29,7 +27,7 @@ def student():
         elif ask == 4:
             break
         else:
-            print ("Not a valid response. Please try again.")
+            print("Not a valid response. Please try again.")
             continue
     menu()
 
@@ -37,7 +35,7 @@ def classroom():
     
     while True:
 
-        print ("""
+        print("""
         OPTIONS
         1: Create
         2: Delete
@@ -46,8 +44,7 @@ def classroom():
         """)
         
         ask = int(input("What you you like to do: "))
-        
-        
+
         if ask == 1:
             
             create_classroom()    
@@ -59,7 +56,7 @@ def classroom():
         elif ask == 4:
             break
         else:
-            print ("Not a valid response. Please try again.")
+            print("Not a valid response. Please try again.")
             continue
 
     menu()
@@ -68,7 +65,7 @@ def assignment():
 
     while True:
 
-        print ("""
+        print("""
         OPTIONS
         1: Create
         2: Delete
@@ -87,7 +84,7 @@ def assignment():
         elif ask == 4:
             break
         else:
-            print ("Not a valid response. Please try again.")
+            print("Not a valid response. Please try again.")
             continue
 
     menu()
@@ -97,14 +94,13 @@ def markbook():
     while True:
         # Show markbook
 
-        print ("""
+        print("""
         OPTIONS
         1: Return to menu
         """)
         
         ask = int(input("What you you like to do: "))
-        
-       
+
         if ask == 1:
             menu()    
             
@@ -113,7 +109,7 @@ def markbook():
 
 def menu():
 
-    print ("""
+    print("""
         1: Student
         2: Classroom
         3: Assignments
