@@ -6,7 +6,7 @@ def student():
    
     while True:
 
-        print ("hello")
+        
 
         ask = int(input("Press 1 to go back: "))
 
