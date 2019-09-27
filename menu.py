@@ -5,12 +5,18 @@ def student():
 
    
     while True:
-
         
-
-        ask = int(input("Press 1 to go back: "))
-
-        if ask == 1:
+        print ("""
+        OPTIONS
+        1: Create
+        2: Delete
+        3: Edit
+        4: Return to menu
+        """)
+        
+        ask = int(input("What you you like to do: "))
+        
+        if ask == 4:
             break
         else:
             continue
@@ -21,12 +27,17 @@ def classroom():
     
     while True:
 
-        print ("hello")
-
-        ask = int(input("Press 1 to go back: "))
-
-
-        if ask == 1:
+        print ("""
+        OPTIONS
+        1: Create
+        2: Delete
+        3: Edit
+        4: Return to menu
+        """)
+        
+        ask = int(input("What you you like to do: "))
+        
+        if ask == 4:
             break
         else:
             continue
@@ -36,6 +47,22 @@ def classroom():
 def assignment():
 
     while True:
+        
+        print ("""
+        OPTIONS
+        1: Create
+        2: Delete
+        3: Edit
+        4: Return to menu
+        """)
+        
+        ask = int(input("What you you like to do: "))
+        
+        if ask == 4:
+            break
+        else:
+            continue
+        
         create_assignment()
 
     menu()
@@ -44,11 +71,17 @@ def markbook():
   
     while True:
 
-        print ("hello")
-
-        ask = int(input("Press 1 to go back: "))
-
-        if ask == 1:
+        print ("""
+        OPTIONS
+        1: Create
+        2: Delete
+        3: Edit
+        4: Return to menu
+        """)
+        
+        ask = int(input("What you you like to do: "))
+        
+        if ask == 4:
             break
         else:
             continue
