@@ -28,15 +28,19 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
             "due": due,
             "points": points
         }
-    
-    elif ask == 2:
+
+    return {}
+
+def delete_assignment():
+    if ask == 2:
         to_be_deleted = input("Which assignment would you like to delete?")
 
         for assignment in assignment_list:
             if assignment["name"] == to_be_deleted:
                 assignment.clear()
 
-    elif ask == 3:
+def edit_assignment ():
+    if ask == 3:
         to_be_edited = input("Enter the assignment to be edited: ")
 
         for assignment in assignment_list:
@@ -56,8 +60,6 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
                     assignment["points"] = int(input("Enter the new points: "))
 
 
-
-    return {}
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
