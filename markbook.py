@@ -6,7 +6,7 @@ from typing import Dict
 import json
 
 
-def create_assignment() -> Dict:  #name: str, due: str, points: int):
+def create_assignment(name: str, due: str, points: int) -> Dict:
     """Creates an assignment represented as a dictionary
     
     Args:
@@ -61,17 +61,14 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
         json.dump(classroom)
     return classroom
 
+
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
-    
+
     return 0
 
-<<<<<<< HEAD
 def add_student_to_classroom(student: str, classroom: dict):
-=======
 
-def add_student_to_classroom(student, classroom):
->>>>>>> fb038ff6e539b4532b5f358e9f961385fb9284e6
     """Adds student to a classroom
 
     Args:
