@@ -18,46 +18,43 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
         Assignment as a dictionary.
     """
 
-    if ask == 1:
-        name = input("What is the name of the assignment? ")
-        due = input("When is the due date? ")
-        points = int(input("How much is this assignment worth. "))
+    name = input("What is the name of the assignment? ")
+    due = input("When is the due date? ")
+    points = int(input("How much is this assignment worth. "))
 
-        assigment1 = {
-            "name": name,
-            "due": due,
-            "points": points
-        }
+    assigment1 = {
+        "name": name,
+        "due": due,
+        "points": points
+    }
 
     return {}
 
 def delete_assignment():
-    if ask == 2:
-        to_be_deleted = input("Which assignment would you like to delete?")
+    to_be_deleted = input("Which assignment would you like to delete? ")
 
-        for assignment in assignment_list:
-            if assignment["name"] == to_be_deleted:
-                assignment.clear()
+    for assignment in assignment_list:
+        if assignment["name"] == to_be_deleted:
+            assignment.clear()
 
 def edit_assignment ():
-    if ask == 3:
-        to_be_edited = input("Enter the assignment to be edited: ")
+    to_be_edited = input("Enter the assignment to be edited: ")
 
-        for assignment in assignment_list:
-            if assignment["name"] == to_be_edited:
-                print("""What will you change?
-                1: Name
-                2: Due Date
-                3: Points""")
+    for assignment in assignment_list:
+        if assignment["name"] == to_be_edited:
+            print("""What will you change?
+            1: Name
+            2: Due Date
+            3: Points""")
 
-                x = int(input())
+            x = int(input())
 
-                if x == 1:
-                    assignment["name"] = input("Enter the new name: ")
-                elif x == 2:
-                    assignment["due"] = input("Enter the new due date: ")
-                elif x == 3:
-                    assignment["points"] = int(input("Enter the new points: "))
+            if x == 1:
+                assignment["name"] = input("Enter the new name: ")
+            elif x == 2:
+                assignment["due"] = input("Enter the new due date: ")
+            elif x == 3:
+                assignment["points"] = int(input("Enter the new points: "))
 
 
 

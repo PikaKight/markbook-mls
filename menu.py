@@ -65,7 +65,7 @@ def classroom():
 def assignment():
 
     while True:
-        
+
         print ("""
         OPTIONS
         1: Create
@@ -76,7 +76,13 @@ def assignment():
         
         ask = int(input("What you you like to do: "))
         
-        if ask == 4:
+        if ask == 1:
+            create_assignment()
+        elif ask == 2:
+            delete_assignment()
+        elif ask == 3:
+            edit_assignment()
+        elif ask == 4:
             break
         else:
             continue
