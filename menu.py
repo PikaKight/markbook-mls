@@ -49,15 +49,8 @@ def classroom():
         
         
         if ask == 1:
-            course_code = input ("What is the course code:")
             
-            course_name = input ("What is the course name:")
-
-            period = input ("What period is the course in:")
-
-            teacher = input("Who is the teacher:")
-
-            create_classroom(course_code,course_name, period, teacher)    
+            create_classroom()    
 
         elif ask == 2:
             to_be_deleted = input("Which classroom would you like to delete?")
