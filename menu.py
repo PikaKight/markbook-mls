@@ -49,7 +49,16 @@ def classroom():
         
         
         if ask == 1:
-            create_classroom()    
+            course_code = input ("What is the course code:")
+            
+            course_name = input ("What is the course name:")
+
+            period = input ("What period is the course in:")
+
+            teacher = input("Who is the teacher:")
+
+            create_classroom(course_code,course_name, period, teacher)    
+
         elif ask == 2:
             to_be_deleted = input("Which classroom would you like to delete?")
         elif ask == 3:
@@ -76,9 +85,16 @@ def assignment():
         
         ask = int(input("What you you like to do: "))
         
-        if ask == 4:
+        if ask == 1:
+            create_assignment()    
+        elif ask == 2:
+            to_be_deleted = input("Which assignment would you like to delete?")
+        elif ask == 3:
+            pass
+        elif ask == 4:
             break
         else:
+            print ("Not a valid response. Please try again.")
             continue
 
     menu()
