@@ -148,5 +148,4 @@ def menu():
         else:
             menu()
 
-course = {}
 menu()

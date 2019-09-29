@@ -60,6 +60,9 @@ def edit_assignment():
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
+    with open ("classroom.json", 'r') as f:
+
+        course = json.load(f)
 
     course[course_code] = { 
         "course_code": course_code,
@@ -67,13 +70,6 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
         "Period": period,
         "Teacher": teacher 
         }
-
-    # classroom = {
-    #     "course_code": course_code,
-    #     "course_name": course_name,
-    #     "Period": period,
-    #     "Teacher": teacher 
-    # } 
 
     with open("classroom.json", 'w') as f:
         json.dump(course,f)
