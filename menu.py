@@ -47,9 +47,9 @@ def classroom():
         ask = int(input("What you you like to do: "))
         
         if ask == 1:
-            print (create_classroom(course_code = input("What is the course code:"), course_name = input("What is the course name:"), period = input("What period is the course in:"), teacher = input("Who is the teacher:") ))    
+            print(create_classroom(course_code = input("What is the course code:"), course_name = input("What is the course name:"), period = input("What period is the course in:"), teacher = input("Who is the teacher:") ))    
         elif ask == 2:
-            to_be_deleted = input("Which classroom would you like to delete?")
+            print(delet_classroom(course_code = input("Please enter the course code to delete it:")))
         elif ask == 3:
             pass
         elif ask == 4:
