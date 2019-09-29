@@ -77,7 +77,7 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
      
     return course[course_code]
 
-def delet_classroom(course_code:str) -> Dict:
+def delete_classroom(course_code:str) -> Dict:
     with open ("classroom.json", 'r') as f:
 
         course = json.load(f)
@@ -89,7 +89,7 @@ def delet_classroom(course_code:str) -> Dict:
     
     with open("classroom.json", 'w') as f:
         json.dump(course,f)
-        
+
     return course
         
 def calculate_average_mark(student: Dict) -> float:
