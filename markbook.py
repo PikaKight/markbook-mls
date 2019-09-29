@@ -29,6 +29,7 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
 
     return {}
 
+
 def delete_assignment():
     to_be_deleted = input("Which assignment would you like to delete? ")
 
@@ -36,7 +37,8 @@ def delete_assignment():
         if assignment["name"] == to_be_deleted:
             assignment.clear()
 
-def edit_assignment ():
+
+def edit_assignment():
     to_be_edited = input("Enter the assignment to be edited: ")
 
     for assignment in assignment_list:
@@ -56,15 +58,14 @@ def edit_assignment ():
                 assignment["points"] = int(input("Enter the new points: "))
 
 
-
-def create_classroom():
+def create_classroom() -> Dict:
     """Creates a classroom dictionary"""
 
-    course_code = input ("What is the course code:")
+    course_code = input("What is the course code:")
             
-    course_name = input ("What is the course name:")
+    course_name = input("What is the course name:")
 
-    period = input ("What period is the course in:")
+    period = input("What period is the course in:")
 
     teacher = input("Who is the teacher:")
     
@@ -80,6 +81,7 @@ def create_classroom():
     
      
     return classroom
+
 
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""

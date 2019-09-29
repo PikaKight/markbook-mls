@@ -3,10 +3,9 @@ from markbook import *
 
 def student():
 
-   
     while True:
         
-        print ("""
+        print("""
         OPTIONS
         1: Add
         2: Delete
@@ -15,10 +14,9 @@ def student():
         """)
         
         ask = int(input("What you you like to do: "))
-        
-        
+
         if ask == 1:
-             add_student_to_classroom()  
+            add_student_to_classroom()  
 
         elif ask == 2:
             to_be_deleted = input("Which student would you like to delete: ")
@@ -29,7 +27,7 @@ def student():
         elif ask == 4:
             break
         else:
-            print ("Not a valid response. Please try again.")
+            print("Not a valid response. Please try again.")
             continue
     menu()
 
@@ -37,7 +35,7 @@ def classroom():
     
     while True:
 
-        print ("""
+        print("""
         OPTIONS
         1: Create
         2: Delete
@@ -46,8 +44,7 @@ def classroom():
         """)
         
         ask = int(input("What you you like to do: "))
-        
-        
+
         if ask == 1:
             create_classroom()    
         elif ask == 2:
@@ -57,7 +54,7 @@ def classroom():
         elif ask == 4:
             break
         else:
-            print ("Not a valid response. Please try again.")
+            print("Not a valid response. Please try again.")
             continue
 
     menu()
@@ -66,7 +63,7 @@ def assignment():
 
     while True:
 
-        print ("""
+        print("""
         OPTIONS
         1: Create
         2: Delete
@@ -85,7 +82,7 @@ def assignment():
         elif ask == 4:
             break
         else:
-            print ("Not a valid response. Please try again.")
+            print("Not a valid response. Please try again.")
             continue
 
     menu()
@@ -93,35 +90,24 @@ def assignment():
 def markbook():
   
     while True:
+        # Show markbook
 
-        print ("""
+        print("""
         OPTIONS
-        1: Create
-        2: Delete
-        3: Edit
-        4: Return to menu
+        1: Return to menu
         """)
         
         ask = int(input("What you you like to do: "))
-        
-       
+
         if ask == 1:
-            create_assignment()    
-        elif ask == 2:
-            to_be_deleted = input("Which assignment would you like to delete?")
-        elif ask == 3:
-            pass
-        elif ask == 4:
-            break
-        else:
-            print ("Not a valid response. Please try again.")
+            menu()    
             
 
     menu()
 
 def menu():
 
-    print ("""
+    print("""
         1: Student
         2: Classroom
         3: Assignments
