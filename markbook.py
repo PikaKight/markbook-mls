@@ -79,7 +79,6 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
 
 def delete_classroom(course_code:str) -> Dict:
     with open ("classroom.json", 'r') as f:
-
         course = json.load(f)
 
     try:
@@ -91,7 +90,79 @@ def delete_classroom(course_code:str) -> Dict:
         json.dump(course,f)
 
     return course
+
+def edit_classroom(course_code:str) -> Dict:
+    while True:
+        with open ("classroom.json", 'r') as f:
+            course = json.load(f)
+
+        print(
+            """
+            1: Course Code
+            2: Course Name
+            3: Period
+            4: Teacher Name
+            5: Return to Course OPTIONS
+            """
+        )
         
+        ask = int(input("what would you like to change:"))
+
+        if ask is 1:
+            new_course_code = input("Please enter the new Course Code:")
+            course[course_code]["course_code"] = new_course_code
+            with open("classroom.json", 'w') as f:
+                json.dump(course,f)
+            
+            cont = input("would you like to do more edits for this course (y/n):")
+            
+            if cont == "y":
+                continue
+            else:
+                break
+
+        elif ask == 2:
+            new_course_name = input("Please enter the new Course Name:")
+            course[course_code]["course_name"] = new_course_name
+            with open("classroom.json", 'w') as f:
+                json.dump(course,f)
+            
+            cont = input("would you like to do more edits for this course (y/n):")
+            
+            if cont == "y":
+                continue
+            else:
+                break
+
+        elif ask == 3:
+            new_period = input("Please enter the new Period:")
+            course[course_code]["Period"] = new_period
+            with open("classroom.json", 'w') as f:
+                json.dump(course,f)
+
+            cont = input("would you like to do more edits for this course (y/n):")
+            
+            if cont == "y":
+                continue
+            else:
+                break
+
+        elif ask == 4:
+            new_teacher = input("Please enter the new Teacher Name:")
+            course[course_code]["Teacher"] = new_teacher
+            with open("classroom.json", 'w') as f:
+                json.dump(course,f)
+            
+            cont = input("would you like to do more edits for this course (y/n):")
+            
+            if cont == "y":
+                continue
+            else:
+                break
+
+        elif ask == 5:
+            break
+
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
     
@@ -106,12 +177,13 @@ def add_student_to_classroom(student: str, classroom: dict):
         student: Student dict
         classroom: The classroom to add the student to
     """
-
+    with open("Classroom.json", "r") as f:
+        course = json.load()
     student_list = []
 
     student_list.append(student)
 
-    couse["students"] = student_list
+    couse["students"] = student_list.sort()
 
     return course
     pass

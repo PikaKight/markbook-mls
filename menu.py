@@ -6,7 +6,7 @@ def student():
     while True:
         
         print ("""
-        OPTIONS
+        Student OPTIONS
         1: Add
         2: Delete
         3: Edit
@@ -37,7 +37,7 @@ def classroom():
     while True:
 
         print ("""
-        OPTIONS
+        Course OPTIONS
         1: Create
         2: Delete
         3: Edit
@@ -49,9 +49,9 @@ def classroom():
         if ask == 1:
             print(create_classroom(course_code = input("What is the course code:"), course_name = input("What is the course name:"), period = input("What period is the course in:"), teacher = input("Who is the teacher:") ))    
         elif ask == 2:
-            print(delet_classroom(course_code = input("Please enter the course code to delete it:")))
+            print(delete_classroom(course_code = input("Please enter the course code to delete it:")))
         elif ask == 3:
-            pass
+            print(edit_classroom(course_code = input("Please enter the course code to edit it:")))
         elif ask == 4:
             break
         else:
@@ -65,7 +65,7 @@ def assignment():
     while True:
 
         print ("""
-        OPTIONS
+        Assignment OPTIONS
         1: Create
         2: Delete
         3: Edit
@@ -93,7 +93,7 @@ def markbook():
     while True:
 
         print ("""
-        OPTIONS
+        Markbook OPTIONS
         1: Create
         2: Delete
         3: Edit
@@ -119,6 +119,7 @@ def markbook():
 def menu():
 
     print ("""
+        Welcome to Markbook
         1: Student
         2: Classroom
         3: Assignments
