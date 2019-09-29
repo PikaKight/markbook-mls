@@ -3,8 +3,8 @@ Markbook Application
 Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
 """
 from typing import Dict
-from menu import *
-
+# from menu import *
+import json
 
 def create_assignment() -> Dict:  #name: str, due: str, points: int):
     """Creates an assignment represented as a dictionary
@@ -58,29 +58,28 @@ def edit_assignment():
                 assignment["points"] = int(input("Enter the new points: "))
 
 
-def create_classroom() -> Dict:
+def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
 
-    course_code = input("What is the course code:")
-            
-    course_name = input("What is the course name:")
-
-    period = input("What period is the course in:")
-
-    teacher = input("Who is the teacher:")
-    
-    classroom = {
+    course[course_code] = { 
         "course_code": course_code,
         "course_name": course_name,
         "Period": period,
         "Teacher": teacher 
-    } 
+        }
+
+    # classroom = {
+    #     "course_code": course_code,
+    #     "course_name": course_name,
+    #     "Period": period,
+    #     "Teacher": teacher 
+    # } 
 
     with open("classroom.json", 'w') as f:
-        f.write(classroom)
+        json.dump(course,f)
     
      
-    return classroom
+    return course[course_code]
 
 
 def calculate_average_mark(student: Dict) -> float:
@@ -98,9 +97,13 @@ def add_student_to_classroom(student: str, classroom: dict):
         classroom: The classroom to add the student to
     """
 
-    classroom["students"] = student
+    student_list = []
 
-    return classroom
+    student_list.append(student)
+
+    couse["students"] = student_list
+
+    return course
     pass
 
 
@@ -124,157 +127,3 @@ def edit_student(student: Dict, **kwargs: Dict):
             of a dictionary.
     """
     pass
-
-
-
-def student():
-
-   
-    while True:
-        
-        print ("""
-        OPTIONS
-        1: Add
-        2: Delete
-        3: Edit
-        4: Return to menu
-        """)
-        
-        ask = int(input("What you you like to do: "))
-        
-        
-        if ask == 1:
-             add_student_to_classroom()  
-
-        elif ask == 2:
-            to_be_deleted = input("Which student would you like to delete: ")
-
-        elif ask == 3:
-            pass
-
-        elif ask == 4:
-            break
-        else:
-            print ("Not a valid response. Please try again.")
-            continue
-    menu()
-
-def classroom():
-    
-    while True:
-
-        print ("""
-        OPTIONS
-        1: Create
-        2: Delete
-        3: Edit
-        4: Return to menu
-        """)
-        
-        ask = int(input("What you you like to do: "))
-        
-        
-        if ask == 1:
-            print (create_classroom())    
-        elif ask == 2:
-            to_be_deleted = input("Which classroom would you like to delete?")
-        elif ask == 3:
-            pass
-        elif ask == 4:
-            break
-        else:
-            print ("Not a valid response. Please try again.")
-            continue
-
-    menu()
-
-def assignment():
-
-    while True:
-
-        print ("""
-        OPTIONS
-        1: Create
-        2: Delete
-        3: Edit
-        4: Return to menu
-        """)
-        
-        ask = int(input("What you you like to do: "))
-        
-        if ask == 1:
-            create_assignment()
-        elif ask == 2:
-            delete_assignment()
-        elif ask == 3:
-            edit_assignment()
-        elif ask == 4:
-            break
-        else:
-            print ("Not a valid response. Please try again.")
-            continue
-
-    menu()
-
-def markbook():
-  
-    while True:
-
-        print ("""
-        OPTIONS
-        1: Create
-        2: Delete
-        3: Edit
-        4: Return to menu
-        """)
-        
-        ask = int(input("What you you like to do: "))
-        
-       
-        if ask == 1:
-            create_assignment()    
-        elif ask == 2:
-            to_be_deleted = input("Which assignment would you like to delete?")
-        elif ask == 3:
-            pass
-        elif ask == 4:
-            break
-        else:
-            print ("Not a valid response. Please try again.")
-            
-
-    menu()
-
-def menu():
-
-    print ("""
-        1: Student
-        2: Classroom
-        3: Assignments
-        4: Markbook
-        5: Quit
-    """)
-    
-    ask = int(input("What would you like do: "))
-
-    if ask == 1:
-        student()
-
-    elif ask == 2:
-        classroom()
-
-    elif ask == 3:
-        assignment()
-
-    elif ask == 4:
-        markbook()
-
-    elif ask == 5:
-        q = input("Are you sure you want to quit (y/n):")
-        
-        if q == "y":
-            quit()
-        else:
-            menu()
-
-menu()
