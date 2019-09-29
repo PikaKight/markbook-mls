@@ -49,9 +49,7 @@ def classroom():
         
         
         if ask == 1:
-            
             create_classroom()    
-
         elif ask == 2:
             to_be_deleted = input("Which classroom would you like to delete?")
         elif ask == 3:
