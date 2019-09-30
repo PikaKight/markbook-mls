@@ -196,20 +196,18 @@ def edit_classroom(course_code:str) -> Dict:
             
             """)
 
-def calculate_average_mark(student: Dict) -> float:
+def calculate_average_mark(course_code:str) -> float:
     """Calculates the average mark of a student"""
-    
-    return 0
-
-def student_average() -> float:
     with open("classroom.json", "r") as f:
-        course = json.load(f)
-    with open("assignment.json", "r") as a:
-        assignment = json.load(a)
-    
-    for i in assignment.keys():
-        grade = int(input("Enter Student Grade for ")) 
-    
+        course = json.dump(f)
+    with open("students.json", "r") as f:
+        student_list = json.dump(f)
+
+    avg = 0
+
+    for key, value in course[course_code]["Student"].items():
+        
+    return 0
 
 def add_student_to_classroom(student: str):
     
@@ -243,8 +241,8 @@ def add_student_to_classroom(student: str):
         weight_total -= weight 
         marks_list.append(marks)
         grade += (marks * weight)
-
-    grade += 100 * weight_total
+    grade_total = grade / number_of_marks
+    grade_total += 100 * weight_total
 
     with open("classroom.json", "r") as f:
         course = json.load(f)
@@ -257,7 +255,7 @@ def add_student_to_classroom(student: str):
         "Gender": gender,
         "Studet Number": student_number,
         "Marks": marks_list,
-        "Grade": grade,
+        "Grade": grade_total,
         "Student Email": email,
         "Comments": comments
     }
@@ -266,7 +264,7 @@ def add_student_to_classroom(student: str):
 
     with open("classroom.json", "w") as f:
         json.dump(course, f)
-        
+
     with open("students.json","w") as f:
         json.dump(student_list, f)
 
@@ -306,8 +304,12 @@ def edit_student(course_code: str, student: str):
             of a dictionary.
     """
     while True:
+
         with open ("classroom.json", 'r') as f:
             course = json.load(f)
+
+        with open ("students.json", 'r') as f:
+            student_list = json.load(f)
 
         print(
             """
@@ -352,7 +354,7 @@ def edit_student(course_code: str, student: str):
 
         elif ask == 3:
             new_student_number = int(input("Please enter the new Student Number:"))
-            course[course_code]["Period"] = new_student_number
+            course[course_code]["Student"][student]["Student Number"] = new_student_number
             with open("classroom.json", 'w') as f:
                 json.dump(course,f)
 
@@ -371,11 +373,74 @@ def edit_student(course_code: str, student: str):
             """)
 
             option = int(input("What would you like to do: "))
-
+            
+            marks = student_list[student]["Marks"]
+            grade_total = student_list[student]["Grade"]
+            grade = 0
+            weight_total = 0
             if option == 1:
+                
                 number_of_marks = int(input("How many marks do you want to add:"))
+                
                 for i in range(number_of_marks):
-                    marks
+                
+                    new_marks = float(input("Enter new Marks:"))
+
+                    weight = float(input("What is the weight: "))
+
+                    weight_total += weight 
+                
+                    grade += (marks * weight)
+                    
+                    marks.append(new_marks)
+                
+                weight_remander = 1 - weight_total
+
+                grade_total = (((grade / number_of_marks) + (100 * weight_remander)) + (grade_total)) / 2
+
+                marks.sort()
+                
+                course[course_code]["Students"][student]["Marks"] = marks
+
+                with open("student.json", "w") as f:
+                    json.dump(student_list, f)
+                
+                with open("classroom.json", "w") as f:
+                    json.dump(course, f)
+                
+                cont = input("would you like to do more edits for this Student (y/n):")
+            
+                if cont == "y":
+                    continue
+                else:
+                    break
+
+            if option == 2:
+
+                number_of_marks_remove = int(input("How many marks are you removing:"))
+                
+                for i in range(number_of_marks_remove):
+                
+                    remove_marks = float(input("Enter new Marks:"))
+
+                    weight = float(input("What is the weight: "))
+
+                    weight_total += weight 
+                
+                    grade += (marks * weight)
+                    
+                    marks.remove(new_marks)
+                
+                weight_remander = 1 - weight_total
+
+                grade_total =  ((grade_total) - ((grade / number_of_marks) + (100 * weight_remander)))/ 2
+                
+                cont = input("would you like to do more edits for this Student (y/n):")
+            
+                if cont == "y":
+                    continue
+                else:
+                    break
 
         elif ask == 5:
             new_email = input("Please enter the new Student Email:")
