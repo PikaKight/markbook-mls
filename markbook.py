@@ -21,13 +21,13 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
     due = input("When is the due date? ")
     points = int(input("How much is this assignment worth. "))
 
-    assigment1 = {
+    assigment = {
         "name": name,
         "due": due,
         "points": points
     }
 
-    return {}
+    return assigment
 
 
 def delete_assignment():
@@ -69,7 +69,6 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
         "course_name": course_name,
         "Period": period,
         "Teacher": teacher, 
-        "Student": {}
         }
 
     with open("classroom.json", 'w') as f:
@@ -79,18 +78,32 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
     return course[course_code]
 
 def delete_classroom(course_code:str) -> Dict:
-    with open ("classroom.json", 'r') as f:
-        course = json.load(f)
+    while True:
+        
+        with open ("classroom.json", 'r') as f:
+            course = json.load(f)
 
-    try:
-        del course[course_code]
-    except KeyError:
-        print("Course {} not found".format(course))
-    
-    with open("classroom.json", 'w') as f:
-        json.dump(course,f)
+        try:
+            del course[course_code]
 
-    return course
+        except KeyError:
+            print("Course {} not found".format(course_code))
+        
+        else: 
+            break
+        
+        with open("classroom.json", 'w') as f:
+            json.dump(course,f)
+
+        for key, value in course.items():
+            return ("""
+                    {}:{}
+                    """.format(key, value)
+                    )
+        ask = input("Would you like to delete any other course (y/n):")
+
+        if ask == "y":
+            break
 
 def edit_classroom(course_code:str) -> Dict:
     while True:
@@ -136,7 +149,7 @@ def edit_classroom(course_code:str) -> Dict:
                 break
 
         elif ask == 3:
-            new_period = input("Please enter the new Period:")
+            new_period = int(input("Please enter the new Period:"))
             course[course_code]["Period"] = new_period
             with open("classroom.json", 'w') as f:
                 json.dump(course,f)
@@ -170,12 +183,13 @@ def edit_classroom(course_code:str) -> Dict:
             This is an invalid option. Please try again.
             
             """)
+
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
     
     return 0
 
-# def student_average():
+# def student_average() -> float:
     
 
 def add_student_to_classroom(student: str):
@@ -230,7 +244,11 @@ def remove_student_from_classroom(course_code: str, student: str):
     with open("classroom.json", 'w') as f:
         json.dump(course,f)
 
-    return course[course_code]["Student"]
+    for key, value in course.items():
+        print ("""
+                
+                {}:{}
+                """.format(key, value))
 
 def edit_student(course_code: str, student: str):
     """Edits the student's info with the provided key/value pairs
@@ -272,8 +290,8 @@ def edit_student(course_code: str, student: str):
                 break
 
         elif ask == 2:
-            new_course_name = input("Please enter the new Course Name:")
-            course[course_code]["course_name"] = new_course_name
+            new_gender= input("Please enter the new gender:")
+            course[course_code]["Student"][student]["Gender"] = new_gender
             with open("classroom.json", 'w') as f:
                 json.dump(course,f)
             
@@ -285,8 +303,8 @@ def edit_student(course_code: str, student: str):
                 break
 
         elif ask == 3:
-            new_period = input("Please enter the new Period:")
-            course[course_code]["Period"] = new_period
+            new_student_number = int(input("Please enter the new Student Number:"))
+            course[course_code]["Period"] = new_student_number
             with open("classroom.json", 'w') as f:
                 json.dump(course,f)
 
@@ -298,13 +316,26 @@ def edit_student(course_code: str, student: str):
                 break
 
         elif ask == 4:
-            new_teacher = input("Please enter the new Teacher Name:")
-            course[course_code]["Teacher"] = new_teacher
+            new_email = input("Please enter the new Student Email:")
+            course[course_code]["Student"][student]["Student Email"] = new_email
             with open("classroom.json", 'w') as f:
                 json.dump(course,f)
             
             cont = input("would you like to do more edits for this Student (y/n):")
             
+            if cont == "y":
+                continue
+            else:
+                break
+
+        elif ask == 5:
+            new_comment = input("Please enter the new comment:")
+            course[course_code]["Student"][student]["Comment"] = new_comment
+            with open("classroom.json", 'w') as f:
+                json.dump(course,f)
+                    
+            cont = input("would you like to do more edits for this Student (y/n):")
+                    
             if cont == "y":
                 continue
             else:

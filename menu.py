@@ -1,4 +1,5 @@
 from markbook import *
+import json
 
 def student():
 
@@ -17,13 +18,13 @@ def student():
         
         
         if ask == 1:
-            print(add_student_to_classroom(student = input("What is the name of the student you will like to add (last, first):"))) 
+            print(add_student_to_classroom(student = input("Enter Student Name (last name, first name):"))) 
 
         elif ask == 2:
-            to_be_deleted = input("Which student would you like to delete: ")
+            print(remove_student_from_classroom(course_code = input("What course is the Student in: "), student = input("Enter Student Name (last name, first name):")))
 
         elif ask == 3:
-            pass
+            print(edit_student(course_code = input("What course is the Student in: "), student = input("Enter Student Name (last name, first name):")))
 
         elif ask == 4:
             break
@@ -49,7 +50,7 @@ def classroom():
         if ask == 1:
             print(create_classroom(course_code = input("What is the course code:"), course_name = input("What is the course name:"), period = input("What period is the course in:"), teacher = input("Who is the teacher:") ))    
         elif ask == 2:
-            print(delete_classroom(course_code = input("Please enter the course code to delete it:")))
+            delete_classroom(course_code = input("Please enter the course code to delete it:"))
         elif ask == 3:
             print(edit_classroom(course_code = input("Please enter the course code to edit it:")))
         elif ask == 4:
@@ -94,21 +95,21 @@ def markbook():
 
         print ("""
         Markbook OPTIONS
-        1: Create
-        2: Delete
-        3: Edit
-        4: Return to menu
+        1: View Markbook
+        2: Return to menu
         """)
         
         ask = int(input("What you you like to do: "))
        
         if ask == 1:
-            create_assignment()    
+            with open("classroom.json", "r") as f:
+                markbook = json.load(f)
+            for key, value in markbook.items():
+                print ("""
+                
+                {}:{}
+                """.format(key, value))            
         elif ask == 2:
-            to_be_deleted = input("Which assignment would you like to delete?")
-        elif ask == 3:
-            pass
-        elif ask == 4:
             break
         else:
             print ("Not a valid response. Please try again.")
