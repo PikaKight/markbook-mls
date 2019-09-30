@@ -1,8 +1,8 @@
 from markbook import *
 import json
 
+# Student Options 
 def student():
-
    
     while True:
         
@@ -33,6 +33,7 @@ def student():
             continue
     menu()
 
+#Course options
 def classroom():
     
     while True:
@@ -61,6 +62,7 @@ def classroom():
 
     menu()
 
+#Assignment Option
 def assignment():
 
     while True:
@@ -89,6 +91,7 @@ def assignment():
 
     menu()
 
+#Markbook View Option
 def markbook():
   
     while True:
@@ -104,6 +107,7 @@ def markbook():
         if ask == 1:
             with open("classroom.json", "r") as f:
                 markbook = json.load(f)
+            #prints out each course out with line skip
             for key, value in markbook.items():
                 print ("""
                 
@@ -117,6 +121,7 @@ def markbook():
 
     menu()
 
+#Menu funcition, lets users navigate through the markbook.
 def menu():
 
     print ("""

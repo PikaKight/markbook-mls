@@ -62,7 +62,7 @@ def edit_assignment():
             2: Due Date
             3: Points""")
 
-            x = int(input())
+            x = int(input()) # lets user choose what they want to change
 
             if x == 1:
                 assignment["name"] = input("Enter the new name: ")
