@@ -209,11 +209,11 @@ def calculate_average_mark(course_code: str) -> float:
         course = json.load(f)
     with open("students.json", "r") as f:
         student_list = json.load(f)
-    
+
     avg = 0
     number_of_student = 0
     for key, value in course[course_code]["Student"].items():
-        avg += course[course_code]["Student"][key]["Grade"] 
+        avg += course[course_code]["Student"][key]["Grade"]
         number_of_student += 1
 
     avg = avg / number_of_student
@@ -303,7 +303,7 @@ def remove_student_from_classroom(course_code: str, student: str):
 
     for key, value in course.items():
         print("""
-                
+
                 {}:{}
                 """.format(key, value))
 
