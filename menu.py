@@ -14,7 +14,7 @@ def student():
         4: Return to menu
         """)
         
-        ask = int(input("What you you like to do: "))
+        ask = int(input("What would you like to do: "))
         
         
         if ask == 1:
@@ -46,7 +46,7 @@ def classroom():
         4: Return to menu
         """)
         
-        ask = int(input("What you you like to do: "))
+        ask = int(input("What would you like to do: "))
         
         if ask == 1:
             print(create_classroom(course_code = input("What is the course code:"), course_name = input("What is the course name:"), period = input("What period is the course in:"), teacher = input("Who is the teacher:") ))    
@@ -75,14 +75,14 @@ def assignment():
         4: Return to menu
         """)
         
-        ask = int(input("What you you like to do: "))
+        ask = int(input("What would you like to do: "))
         
         if ask == 1:
-            print(create_assignment())
+            print(create_assignment(course_code=input("Enter the Course Code for the assignment: ")))
         elif ask == 2:
-            print(delete_assignment())
+            print(delete_assignment(course_code=input("Enter the Course Code for the assignment: ")))
         elif ask == 3:
-            print(edit_assignment())
+            print(edit_assignment(course_code=input("Enter the Course Code for the assignment: ")))
         elif ask == 4:
             break
         else:
@@ -99,10 +99,11 @@ def markbook():
         print ("""
         Markbook OPTIONS
         1: View Markbook
-        2: Return to menu
+        2: View Course Average
+        3: Return to menu
         """)
         
-        ask = int(input("What you you like to do: "))
+        ask = int(input("What would you like to do: "))
        
         if ask == 1:
             with open("classroom.json", "r") as f:
@@ -114,6 +115,8 @@ def markbook():
                 {}:{}
                 """.format(key, value))            
         elif ask == 2:
+            print (calculate_average_mark(course_code = input("Enter Course Code: ")))
+        elif ask == 3:
             break
         else:
             print ("Not a valid response. Please try again.")
