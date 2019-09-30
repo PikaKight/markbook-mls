@@ -86,7 +86,8 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
         "course_code": course_code,
         "course_name": course_name,
         "Period": period,
-        "Teacher": teacher, 
+        "Teacher": teacher,
+        "Average": calculate_average_mark(course_code)  
         }
 
     with open("classroom.json", 'w') as f:
