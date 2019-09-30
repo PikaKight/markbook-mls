@@ -3,7 +3,6 @@ Markbook Application
 Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
 """
 from typing import Dict
-# from menu import *
 import json
 
 def create_assignment(course_code: str) -> Dict:  #name: str, due: str, points: int):
