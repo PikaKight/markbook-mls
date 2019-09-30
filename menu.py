@@ -17,7 +17,7 @@ def student():
         
         
         if ask == 1:
-             add_student_to_classroom()  
+            print(add_student_to_classroom(student = input("What is the name of the student you will like to add (last, first):"))) 
 
         elif ask == 2:
             to_be_deleted = input("Which student would you like to delete: ")
