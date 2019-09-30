@@ -18,13 +18,15 @@ def student():
         ask = int(input("What you you like to do: "))
 
         if ask == 1:
-            print(add_student_to_classroom(student = input("Enter Student Name (last name, first name):")))
+            print(add_student_to_classroom(student=input("Enter Student Name (last name, first name):")))
 
         elif ask == 2:
-            print(remove_student_from_classroom(course_code = input("What course is the Student in: "), student = input("Enter Student Name (last name, first name):")))
+            print(remove_student_from_classroom(course_code=input("What course is the Student in: "),
+                                                student=input("Enter Student Name (last name, first name):")))
 
         elif ask == 3:
-            print(edit_student(course_code = input("What course is the Student in: "), student = input("Enter Student Name (last name, first name):")))
+            print(edit_student(course_code=input("What course is the Student in: "),
+                               student=input("Enter Student Name (last name, first name):")))
 
         elif ask == 4:
             break
@@ -50,14 +52,14 @@ def classroom():
         ask = int(input("What you you like to do: "))
 
         if ask == 1:
-            print(create_classroom(course_code = input("What is the course code:"),
-            course_name = input("What is the course name:"),
-            period = input("What period is the course in:"),
-            teacher = input("Who is the teacher:")))
+            print(create_classroom(course_code=input("What is the course code:"),
+                                   course_name=input("What is the course name:"),
+                                   period=input("What period is the course in:"),
+                                   teacher=input("Who is the teacher:")))
         elif ask == 2:
-            delete_classroom(course_code = input("Please enter the course code to delete it:"))
+            delete_classroom(course_code=input("Please enter the course code to delete it:"))
         elif ask == 3:
-            print(edit_classroom(course_code = input("Please enter the course code to edit it:")))
+            print(edit_classroom(course_code=input("Please enter the course code to edit it:")))
         elif ask == 4:
             break
         else:
@@ -117,11 +119,10 @@ def markbook():
             # prints out each course out with line skip
             for key, value in markbook.items():
                 print("""
-
                 {}:{}
                 """.format(key, value))
         elif ask == 2:
-            print (calculate_average_mark(course_code = input("Enter Course Code: ")))
+            print (calculate_average_mark(course_code=input("Enter Course Code: ")))
         elif ask == 3:
             break
         else:
