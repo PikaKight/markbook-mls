@@ -204,10 +204,14 @@ def calculate_average_mark(course_code:str) -> float:
         student_list = json.dump(f)
 
     avg = 0
-
+    number_of_student = 0
     for key, value in course[course_code]["Student"].items():
-        
-    return 0
+        avg += course[course_code]["Student"][key]["Grade"] 
+        number_of_student += 1
+   
+    avg = avg / number_of_student 
+    
+    return avg
 
 def add_student_to_classroom(student: str):
     
