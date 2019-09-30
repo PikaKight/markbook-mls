@@ -16,32 +16,46 @@ def create_assignment() -> Dict:  #name: str, due: str, points: int):
     Returns:
         Assignment as a dictionary.
     """
+    with open("assignment.json", "r") as f:
+        assignment_List = json.load(f)
 
     name = input("What is the name of the assignment? ")
     due = input("When is the due date? ")
     points = int(input("How much is this assignment worth. "))
 
-    assigment = {
-        "name": name,
+    assignment_List[name] = {
         "due": due,
         "points": points
     }
 
-    return assigment
+    with open("assignment.json", "w") as f:
+        json.dump(assignment_List, f)
+
+    return assignment_List
 
 
 def delete_assignment():
     to_be_deleted = input("Which assignment would you like to delete? ")
+   
+    with open("assignment.json", "r") as f:
+        assignment_List = json.load(f)
 
-    for assignment in assignment_list:
+    for assignment in assignment_List:
         if assignment["name"] == to_be_deleted:
             assignment.clear()
 
+    with open("assignment.json", "w") as f:
+        json.dump(assignment, f)
+    
+    return assignment_List
 
 def edit_assignment():
     to_be_edited = input("Enter the assignment to be edited: ")
+    
+    with open("assignment.json", "r") as f:
+        assignment_List = json.load(f)
 
-    for assignment in assignment_list:
+    for assignment in assignment_List:
         if assignment["name"] == to_be_edited:
             print("""What will you change?
             1: Name
@@ -56,7 +70,11 @@ def edit_assignment():
                 assignment["due"] = input("Enter the new due date: ")
             elif x == 3:
                 assignment["points"] = int(input("Enter the new points: "))
-
+    
+    with open("assignment.json", "w") as f:
+        json.dump(assignment, f)
+    
+    return assignment_List
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
@@ -88,9 +106,7 @@ def delete_classroom(course_code:str) -> Dict:
 
         except KeyError:
             print("Course {} not found".format(course_code))
-        
-        else: 
-            break
+            
         
         with open("classroom.json", 'w') as f:
             json.dump(course,f)
@@ -100,10 +116,6 @@ def delete_classroom(course_code:str) -> Dict:
                     {}:{}
                     """.format(key, value)
                     )
-        ask = input("Would you like to delete any other course (y/n):")
-
-        if ask == "y":
-            break
 
 def edit_classroom(course_code:str) -> Dict:
     while True:
@@ -189,7 +201,14 @@ def calculate_average_mark(student: Dict) -> float:
     
     return 0
 
-# def student_average() -> float:
+def student_average() -> float:
+    with open("classroom.json", "r") as f:
+        course = json.load(f)
+    with open("assignment.json", "r") as a:
+        assignment = json.load(a)
+    
+    for i in assignment.keys():
+        grade = int(input("Enter Student Grade for ")) 
     
 
 def add_student_to_classroom(student: str):

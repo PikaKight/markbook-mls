@@ -76,11 +76,11 @@ def assignment():
         ask = int(input("What you you like to do: "))
         
         if ask == 1:
-            create_assignment()
+            print(create_assignment())
         elif ask == 2:
-            delete_assignment()
+            print(delete_assignment())
         elif ask == 3:
-            edit_assignment()
+            print(edit_assignment())
         elif ask == 4:
             break
         else:
