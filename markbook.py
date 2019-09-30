@@ -206,10 +206,10 @@ def edit_classroom(course_code: str) -> Dict:
 def calculate_average_mark(course_code: str) -> float:
     """Calculates the average mark of a student"""
     with open("classroom.json", "r") as f:
-        course = json.dump(f)
+        course = json.load(f)
     with open("students.json", "r") as f:
-        student_list = json.dump(f)
-
+        student_list = json.load(f)
+    
     avg = 0
     number_of_student = 0
     for key, value in course[course_code]["Student"].items():
