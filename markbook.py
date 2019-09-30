@@ -3,10 +3,10 @@ Markbook Application
 Group members: Marcus Tuen Muk, Liu Chen Wu, Stella Hong
 """
 from typing import Dict
-# from menu import *
 import json
 
-def create_assignment(course_code: str) -> Dict:  #name: str, due: str, points: int):
+
+def create_assignment(course_code: str) -> Dict:
     """Creates an assignment represented as a dictionary
 
     Args:
@@ -24,7 +24,7 @@ def create_assignment(course_code: str) -> Dict:  #name: str, due: str, points: 
     points = int(input("How much is this assignment worth. "))
 
     assignment_List[course_code] = {
-        name:{
+        name: {
             "name": name,
             "due": due,
             "points": points
@@ -48,8 +48,9 @@ def delete_assignment(course_code: str):
 
     with open("assignment.json", "w") as f:
         json.dump(assignment_List, f)
-    
+
     return assignment_List
+
 
 def edit_assignment(course_code: str):
     to_be_edited = input("Enter the assignment to be edited: ")
@@ -64,7 +65,8 @@ def edit_assignment(course_code: str):
         3: Points
         """)
 
-    x = int(input("What would you like to edit: ")) # lets user choose what they want to change
+    # lets user choose what they want to change
+    x = int(input("What would you like to edit: "))
 
     if x == 1:
         new_name = input("Enter the new name: ")
@@ -75,10 +77,10 @@ def edit_assignment(course_code: str):
         assignment_List[course_code][to_be_edited]["due"] = input("Enter the new due date: ")
     elif x == 3:
         assignment_List[course_code][to_be_edited]["points"] = int(input("Enter the new points: "))
-    
+
     with open("assignment.json", "w") as f:
         json.dump(assignment_List, f)
-    
+
     return assignment_List
 
 
@@ -92,7 +94,7 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
         "course_code": course_code,
         "course_name": course_name,
         "Period": period,
-        "Teacher": teacher, 
+        "Teacher": teacher,
         }
 
     with open("classroom.json", 'w') as f:
@@ -245,7 +247,7 @@ def add_student_to_classroom(student: str):
     marks_list = []
 
     grade = 0
-    
+
     grade_total = 0
 
     weight_total = 1
@@ -253,7 +255,7 @@ def add_student_to_classroom(student: str):
         for i in range(number_of_marks):
             marks = float(input("Please enter the marks:"))
             weight = float(input("Please enter the weight mark of this assignment (enter as percentage, i.e 5):")) / 100
-            weight_total -= weight 
+            weight_total -= weight
             marks_list.append(marks)
             grade += (marks * weight)
         grade_total = grade / number_of_marks
@@ -264,8 +266,8 @@ def add_student_to_classroom(student: str):
 
     with open("students.json", "r") as f:
         student_list = json.load(f)
-        
-    student_list[course_code]= {
+
+    student_list[course_code] = {
         student: {
             "Student Name": student,
             "Gender": gender,
