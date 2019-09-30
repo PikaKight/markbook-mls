@@ -212,7 +212,7 @@ def student_average() -> float:
     
 
 def add_student_to_classroom(student: str):
-
+    
     """Adds student to a classroom
 
     Args:
@@ -229,19 +229,46 @@ def add_student_to_classroom(student: str):
 
     comments = input("Enter your comments:")
 
-    with open("Classroom.json", "r") as f:
-        course = json.load(f)
+    number_of_marks = int(input("Please enter the number of marks you want to add:"))
 
-    course[course_code]["Students"] = {
+    marks_list = []
+    
+    grade = 0
+    
+    weight_total = 1
+
+    for i in range(number_of_marks):
+        marks = float(input("Please enter the marks:"))
+        weight = float(input("Please enter the weight mark of this assignment (enter as percentage, i.e 5):")) / 100
+        weight_total -= weight 
+        marks_list.append(marks)
+        grade += (marks * weight)
+
+    grade += 100 * weight_total
+
+    with open("classroom.json", "r") as f:
+        course = json.load(f)
+    
+    with open("students.json", "r") as f:
+        student_list = json.load(f)
+        
+    student_list[student] = {
         "Student Name": student,
         "Gender": gender,
         "Studet Number": student_number,
+        "Marks": marks_list,
+        "Grade": grade,
         "Student Email": email,
         "Comments": comments
     }
 
-    with open("Classroom.json", "w") as f:
+    course[course_code]["Students"] = student_list
+
+    with open("classroom.json", "w") as f:
         json.dump(course, f)
+        
+    with open("students.json","w") as f:
+        json.dump(student_list, f)
 
     return course[course_code]
     
@@ -284,11 +311,13 @@ def edit_student(course_code: str, student: str):
 
         print(
             """
+            Edit Student Menu
             1: Student Name
             2: Gender
             3: Student Number
-            4: Email
-            5: Comments 
+            4: Marks
+            5: Email
+            6: Comments 
             7: Return to Student OPTIONS
             """
         )
@@ -335,6 +364,20 @@ def edit_student(course_code: str, student: str):
                 break
 
         elif ask == 4:
+            print("""
+                1: Add Marks
+                2: Remove marks
+                3: Return to Edit Student Menu 
+            """)
+
+            option = int(input("What would you like to do: "))
+
+            if option == 1:
+                number_of_marks = int(input("How many marks do you want to add:"))
+                for i in range(number_of_marks):
+                    marks
+
+        elif ask == 5:
             new_email = input("Please enter the new Student Email:")
             course[course_code]["Student"][student]["Student Email"] = new_email
             with open("classroom.json", 'w') as f:
@@ -347,7 +390,7 @@ def edit_student(course_code: str, student: str):
             else:
                 break
 
-        elif ask == 5:
+        elif ask == 6:
             new_comment = input("Please enter the new comment:")
             course[course_code]["Student"][student]["Comment"] = new_comment
             with open("classroom.json", 'w') as f:
@@ -360,7 +403,7 @@ def edit_student(course_code: str, student: str):
             else:
                 break
 
-        elif ask == 6:
+        elif ask == 7:
             break
         else: 
             print("""
