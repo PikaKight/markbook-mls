@@ -106,6 +106,7 @@ def delete_classroom(course_code:str) -> Dict:
 
         except KeyError:
             print("Course {} not found".format(course_code))
+            break
             
         
         with open("classroom.json", 'w') as f:
@@ -202,7 +203,7 @@ def calculate_average_mark(course_code:str) -> float:
         course = json.dump(f)
     with open("students.json", "r") as f:
         student_list = json.dump(f)
-
+    
     avg = 0
     number_of_student = 0
     for key, value in course[course_code]["Student"].items():
